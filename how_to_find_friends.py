@@ -3,10 +3,12 @@ def check_connection(network, first, second):
 
     for connection in network:
         friends = set(connection.split("-"))
+        
         for group in connection_groups[:]:
             if group.intersection(friends):
                 friends.update(group)
                 connection_groups.remove(group)
+
         connection_groups.append(friends)
     
     for group in connection_groups:
